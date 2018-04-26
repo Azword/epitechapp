@@ -3,38 +3,72 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {HomePage} from "../pages/home/home";
+import {AboutPage} from "../pages/about/about";
+import {AccountPage} from "../pages/account/account";
+import {SettingsPage} from "../pages/settings/settings";
+import {CreditPage} from "../pages/home/credit/credit";
+import {HistoryPage} from "../pages/home/history/history";
+import {ModulesPage} from "../pages/home/modules/modules";
+import {NewsPage} from "../pages/home/news/news";
+import {ProjectsPage} from "../pages/home/projects/projects";
+import { NewsProvider } from '../providers/news/news';
+import { IntraProvider } from '../providers/intra/intra';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {LoginPage} from "../pages/login/login";
+import { UserProvider } from '../providers/user/user';
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AccountPage,
+    SettingsPage,
     HomePage,
-    TabsPage
+    AboutPage,
+    TabsPage,
+    CreditPage,
+    HistoryPage,
+    ModulesPage,
+    NewsPage,
+    ProjectsPage,
+    LoginPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AccountPage,
+    SettingsPage,
     HomePage,
-    TabsPage
+    AboutPage,
+    TabsPage,
+    CreditPage,
+    HistoryPage,
+    ModulesPage,
+    NewsPage,
+    ProjectsPage,
+    LoginPage,
+    ProgressBarComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NewsProvider,
+    IntraProvider,
+    InAppBrowser,
+    UserProvider
   ]
 })
 export class AppModule {}

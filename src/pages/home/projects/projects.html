@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title text-center>
-      Home
+      Projects
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -23,17 +23,10 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-  <page-credit></page-credit>
-  <page-news></page-news>
-  <ion-card (click)="openProjectsPage()">
+  <ion-card *ngFor="let item of intraProvider.projects; let i = index">
     <img src="assets/imgs/card-techno.jpeg"/>
-    <div class="card-title">Projets</div>
-    <div class="card-subtitle">{{intraProvider.projects?.length}}</div>
-  </ion-card>
-  <ion-card (click)="openModulesPage()">
-    <img src="assets/imgs/card-techno.jpeg"/>
-    <div class="card-title">Modules</div>
-    <div class="card-subtitle">{{intraProvider.modules?.length}}</div>
+    <div class="card-title">{{item.title | slice:0:20}}</div>
+    <div class="card-subtitle">{{item.title_link}}</div>
   </ion-card>
 </ion-content>
 
