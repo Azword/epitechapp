@@ -23,10 +23,16 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-card *ngFor="let item of intraProvider.projects; let i = index">
+  <ion-card *ngFor="let item of intraProvider.projects; let i = index" (click)="openProjectDetailsPage(i)">
     <img src="assets/imgs/card-techno.jpeg"/>
+    <div class="card-button">
+      <ion-icon [name]="(item.date_inscription == false) ? 'close-circle' : 'add-circle'" [color]="(item.date_inscription == false) ? 'danger' : 'secondary'"></ion-icon>
+    </div>
     <div class="card-title">{{item.title | slice:0:20}}</div>
     <div class="card-subtitle">{{item.title_link}}</div>
+    <div class="card-progres">
+      <progress-bar [maxValue]="10" [token]="" [currentValue]="7" [width]="item.timeline_barre"></progress-bar>
+    </div>
   </ion-card>
 </ion-content>
 

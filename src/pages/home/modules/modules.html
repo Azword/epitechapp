@@ -25,6 +25,11 @@
   </ion-refresher>
   <ion-card *ngFor="let item of intraProvider.modules; let i = index">
     <img src="assets/imgs/card-techno.jpeg"/>
+    <button class="card-button" clear
+            (click)="(item.date_inscription == 'false') ? unregisterModule(item)  : registerModule(item) ">
+      <ion-icon [name]="(item.date_inscription == false) ? 'close-circle' : 'add-circle'"
+                [color]="(item.date_inscription == false) ? 'danger' : 'secondary'"></ion-icon>
+    </button>
     <div class="card-title">{{item.title | slice:0:20}}</div>
     <div class="card-subtitle">{{item.title_link}}</div>
   </ion-card>

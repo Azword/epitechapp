@@ -23,6 +23,7 @@ import {LoginPage} from "../pages/login/login";
 import { UserProvider } from '../providers/user/user';
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
+import {ProjectDetailsPage} from "../pages/home/projects/project-details/project-details";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
     NewsPage,
     ProjectsPage,
     LoginPage,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ProjectDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
     NewsPage,
     ProjectsPage,
     LoginPage,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ProjectDetailsPage
   ],
   providers: [
     StatusBar,

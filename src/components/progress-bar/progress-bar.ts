@@ -30,4 +30,8 @@ export class ProgressBarComponent {
     }, 10);
   }
 
+  ionViewDidLoad() {
+    this.currentWidth = 0;
+  }
+
 }

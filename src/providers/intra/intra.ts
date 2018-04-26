@@ -25,6 +25,11 @@ export class IntraProvider {
     console.log('Hello IntraProvider Provider');
   }
 
+  getProject(title) {
+    let n = this.projects.indexOf(title);
+    return (this.projects[n]);
+  }
+
   getBoard() {
     let board: Board = new Board();
     this.http.post(this.userProvider.transitAPIUrl, {url: this.userProvider.intraBaseUrl + this.userProvider.token}).subscribe(
@@ -44,6 +49,30 @@ export class IntraProvider {
         console.error(error.toString());
       }
     );
+  }
+
+  registerModule(m: Module) {
+    console.log(this.userProvider.intraBaseUrl + this.userProvider.token + m.title_link + 'register?format=json');
+    this.http.post(this.userProvider.transitAPIUrl, {url: this.userProvider.intraBaseUrl + this.userProvider.token + m.title_link + 'register?format=json', method: 'POST'}).subscribe(
+      success => {
+        console.log(success);
+      },
+      error => {
+
+      }
+    )
+  }
+
+  unregisterModule(m: Module) {
+    console.log(this.userProvider.intraBaseUrl + this.userProvider.token + m.title_link + 'register?format=json');
+    this.http.post(this.userProvider.transitAPIUrl, {url: this.userProvider.intraBaseUrl + this.userProvider.token + m.title_link + 'unregister?format=json', method: 'POST'}).subscribe(
+      success => {
+        console.log(success);
+      },
+      error => {
+
+      }
+    )
   }
 
 }

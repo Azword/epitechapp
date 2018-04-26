@@ -4,5 +4,5 @@ export class Module {
   timeline_start: Date = null;
   timeline_end: Date = null;
   timeline_barre: number = 0;
-  date_inscription: Date = null;
+  date_inscription: string = 'false';
 }

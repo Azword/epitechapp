@@ -16,6 +16,7 @@ import {IntraProvider} from "../../../providers/intra/intra";
 })
 export class ProjectsPage {
 
+  date = new Date;
   constructor(public navCtrl: NavController, public navParams: NavParams, public intraProvider: IntraProvider) {
   }
 
@@ -23,4 +24,8 @@ export class ProjectsPage {
     console.log('ionViewDidLoad ProjectsPage');
   }
 
+  openProjectDetailsPage(i) {
+    let project = this.intraProvider.projects[i];
+    console.log(project);
+  }
 }

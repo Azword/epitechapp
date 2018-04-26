@@ -15,12 +15,26 @@ page-projects {
       color: #fff;
     }
 
+    .card-button {
+      font-size: 1.0em;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5%;
+    }
+
     .card-subtitle {
       font-size: 1.0em;
       position: absolute;
       top: 52%;
       width: 100%;
       color: #fff;
+    }
+    .card-progress {
+      font-size: 1.0em;
+      position: absolute;
+      top: 60%;
+      width: 100%;
     }
 
   }
