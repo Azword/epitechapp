@@ -1,4 +1,4 @@
-progress-bar {
+progress-bar-credit {
     .progress-outer {
       width: 96%;
       margin: 10px 2%;
@@ -18,4 +18,5 @@ progress-bar {
       border-radius: 20px;
       background-color: map-get($colors, primary);
     }
+
 }

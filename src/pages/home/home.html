@@ -15,7 +15,7 @@
 
 
 <ion-content class="card-background-page">
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher (ionRefresh)="intraProvider.refreshData($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
       pullingText="Pull to refresh"

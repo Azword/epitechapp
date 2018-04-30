@@ -4,4 +4,6 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<progress-bar [currentValue]="87" [maxValue]="120" [token]="'Crédit'" [width]="80"></progress-bar>
+<progress-bar-credit [creditGoals]="intraProvider.board?.current[0].credits_obj"
+                     [currentCredit]="intraProvider.userProfil?.credits"
+                     [width]="90"></progress-bar-credit>

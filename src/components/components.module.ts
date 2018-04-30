@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
-import { ProgressBarComponent } from './progress-bar/progress-bar';
+import { ProgressBarTimeLineComponent } from './progress-bar-time-line/progress-bar-time-line';
+import { ProgressBarCreditComponent } from './progress-bar-credit/progress-bar-credit';
 @NgModule({
-	declarations: [ProgressBarComponent],
+	declarations: [
+    ProgressBarTimeLineComponent,
+    ProgressBarCreditComponent],
 	imports: [],
-	exports: [ProgressBarComponent]
+	exports: [
+    ProgressBarTimeLineComponent,
+    ProgressBarCreditComponent]
 })
 export class ComponentsModule {}

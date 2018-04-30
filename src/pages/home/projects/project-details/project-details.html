@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>projectDetails</ion-title>
+    <ion-title text-center>
+      {{project.title}}
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="intraProvider.refreshData($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <img src="assets/imgs/card-techno.jpeg"/>
+    <div class="card-button">
+    </div>
+    <div class="card-title">{{project.title | slice:0:20}}</div>
+    <div class="card-subtitle">{{project.title_link}}</div>
+    <div class="card-progress">
+      <progress-bar-time-line [startDate]="project.timeline_start" [endDate]="project.timeline_end" [type]='"projet"'
+                              [width]="project.timeline_barre"></progress-bar-time-line>
+    </div>
+    <div class="fileBrowser">
+      <ion-icon name="folder"></ion-icon>
+      <a (click)="openFileBrowser()">Voir les fichiers</a>
+    </div>
+  </ion-card>
+  <ion-row>
+    <ion-col offset-2 col-8>
+      <img src="./assets/imgs/last_logo.png">
+    </ion-col>
+  </ion-row>
 </ion-content>

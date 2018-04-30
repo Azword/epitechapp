@@ -1,9 +1,0 @@
-<!-- Generated template for the ProgressBarComponent component -->
-<div class="progress-outer">
-  <div *ngIf="currentWidth != 100" class="progress-inner" [style.width]="currentWidth + '%'">
-    {{currentValue}} {{token}} / {{maxValue}} {{token}}
-  </div>
-  <div *ngIf="currentWidth == 100" class="progress-inner" [style.width]="currentWidth + '%'">
-    Terminé !
-  </div>
-</div>

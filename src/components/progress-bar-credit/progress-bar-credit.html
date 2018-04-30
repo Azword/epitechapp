@@ -1,0 +1,11 @@
+<!-- Generated template for the ProgressBarCreditComponent component -->
+<div class="progress-outer">
+  <div *ngIf="currentWidth != 100" class="progress-inner" [style.width]="currentWidth + '%'">
+    {{currentCredit}} crédits / {{creditGoals}} crédits
+  </div>
+  <div *ngIf="currentWidth >= 100" class="progress-inner" [style.width]="currentWidth + '%'">
+    Vous avez atteint votre objectif de crédits !
+    <br>
+    {{currentCredit}} crédits / {{creditGoals}} crédits
+  </div>
+</div>

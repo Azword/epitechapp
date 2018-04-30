@@ -21,9 +21,12 @@ import { IntraProvider } from '../providers/intra/intra';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {LoginPage} from "../pages/login/login";
 import { UserProvider } from '../providers/user/user';
-import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
-import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
+import {HttpClientModule} from "@angular/common/http";
 import {ProjectDetailsPage} from "../pages/home/projects/project-details/project-details";
+import {IonicStorageModule} from "@ionic/storage";
+import {ProgressBarCreditComponent} from "../components/progress-bar-credit/progress-bar-credit";
+import {ProgressBarTimeLineComponent} from "../components/progress-bar-time-line/progress-bar-time-line";
+
 
 @NgModule({
   declarations: [
@@ -39,13 +42,15 @@ import {ProjectDetailsPage} from "../pages/home/projects/project-details/project
     NewsPage,
     ProjectsPage,
     LoginPage,
-    ProgressBarComponent,
+    ProgressBarCreditComponent,
+    ProgressBarTimeLineComponent,
     ProjectDetailsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,7 +66,8 @@ import {ProjectDetailsPage} from "../pages/home/projects/project-details/project
     NewsPage,
     ProjectsPage,
     LoginPage,
-    ProgressBarComponent,
+    ProgressBarCreditComponent,
+    ProgressBarTimeLineComponent,
     ProjectDetailsPage
   ],
   providers: [
@@ -71,7 +77,7 @@ import {ProjectDetailsPage} from "../pages/home/projects/project-details/project
     NewsProvider,
     IntraProvider,
     InAppBrowser,
-    UserProvider
+    UserProvider,
   ]
 })
 export class AppModule {}

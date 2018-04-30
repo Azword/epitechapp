@@ -9,4 +9,5 @@ export class Board {
   activites: any;
   modules: Module[];
   history: History[];
+  current: [{}];
 }

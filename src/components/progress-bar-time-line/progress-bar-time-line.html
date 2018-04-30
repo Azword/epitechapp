@@ -1,0 +1,11 @@
+<!-- Generated template for the ProgressBarTimeLineComponent component -->
+<div class="timeLine">
+  <p>{{startDate}} - {{endDate}}</p>
+</div>
+<div class="progress-outer">
+  <div *ngIf="currentWidth != 100" class="progress-inner" [style.width]="currentWidth + '%'">
+  </div>
+  <div *ngIf="currentWidth >= 100" class="progress-inner" [style.width]="currentWidth + '%'">
+    Ce {{type}} est terminé !
+  </div>
+</div>

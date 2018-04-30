@@ -1,26 +1,24 @@
 import {Component, Input} from '@angular/core';
 
 /**
- * Generated class for the ProgressBarComponent component.
+ * Generated class for the ProgressBarCreditComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'progress-bar',
-  templateUrl: 'progress-bar.html'
+  selector: 'progress-bar-credit',
+  templateUrl: 'progress-bar-credit.html'
 })
-export class ProgressBarComponent {
+export class ProgressBarCreditComponent {
 
   currentWidth = 0;
   intervale;
-  @Input('maxValue') maxValue: number;
-  @Input('currentValue') currentValue: number;
-  @Input('token') token: string;
+  @Input('creditGoals') creditGoals: number;
+  @Input('currentCredit') currentCredit: number;
   @Input('width') width: number;
 
   constructor() {
-    console.log('Hello ProgressBarComponent Component');
     this.intervale = setInterval(() => {
       if (this.currentWidth < this.width) {
         this.currentWidth++;
@@ -30,8 +28,10 @@ export class ProgressBarComponent {
     }, 10);
   }
 
+
   ionViewDidLoad() {
     this.currentWidth = 0;
   }
+
 
 }
