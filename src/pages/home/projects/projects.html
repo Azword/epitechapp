@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title text-center>
-      Projects
+      Projets
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -32,6 +32,8 @@
     <div class="card-progress">
       <progress-bar-time-line [startDate]="item.timeline_start" [endDate]="item.timeline_end" [type]='"projet"'
                               [width]="item.timeline_barre"></progress-bar-time-line>
+      <p *ngIf="item.date_inscription != false" ion-text color="danger">Vous n'êtes pas inscrit à ce projet !</p>
+      <p *ngIf="item.date_inscription == false" ion-text color="secondary">Vous êtes inscrit à ce projet !</p>
     </div>
   </ion-card>
 </ion-content>

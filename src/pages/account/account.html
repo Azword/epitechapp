@@ -7,12 +7,45 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>account</ion-title>
+    <ion-title>Mon compte</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-item style="text-align: center">
+      <h2>{{intraProvider?.userProfil?.title}}</h2>
+      <p>Promo {{intraProvider?.userProfil?.promo}}</p>
+      <p>Tek{{intraProvider?.userProfil?.studentyear}}</p>
+    </ion-item>
 
+    <img src="{{intraProvider?.userProfil?.picture}}">
+
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="flame" item-start></ion-icon>
+        GPA
+        <ion-badge item-end>{{intraProvider?.userProfil?.gpa[0].gpa}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="card" item-start></ion-icon>
+        Crédits
+        <ion-badge item-end>{{intraProvider?.userProfil?.credits}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="globe" item-start></ion-icon>
+        Localisation
+        <ion-badge item-end>{{intraProvider?.userProfil?.groups[0].title}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="filing" item-start></ion-icon>
+        Epices
+        <ion-badge item-end>{{(intraProvider?.userProfil?.spice == null) ? 0 : intraProvider.userProfil?.spice}}</ion-badge>
+      </ion-item>
+    </ion-card-content>
+
+
+  </ion-card>
 </ion-content>

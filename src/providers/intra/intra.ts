@@ -7,6 +7,8 @@ import {History} from "../../models/History";
 import {Board} from "../../models/Board";
 import {Storage} from '@ionic/storage';
 import {UserProfil} from "../../models/UserProfil";
+import {NotificationProvider} from "../notification/notification";
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 
 /*
@@ -23,8 +25,9 @@ export class IntraProvider {
   public history: History[];
   public userProfil: UserProfil;
   public board: Board;
+  private previousLength: number = -1;
 
-  constructor(public http: HttpClient, public userProvider: UserProvider, public storage: Storage) {
+  constructor(public http: HttpClient, public userProvider: UserProvider, public storage: Storage, public localNotifications: LocalNotifications) {
     this.getBoard(true);
     this.getUserProfil(true);
   }
@@ -35,11 +38,6 @@ export class IntraProvider {
   }
 
   getUserProfil(cache: boolean) {
-    if (cache) {
-      this.storage.get('userProfil').then((json) => {
-        this.userProfil = json;
-      });
-    }
     this.http.post(this.userProvider.transitAPIUrl, {url: this.userProvider.intraBaseUrl + this.userProvider.token + '/user'}).subscribe(
       success => {
         let json = JSON.parse(success.toString());
@@ -73,6 +71,7 @@ export class IntraProvider {
         this.modules = board.modules;
         this.projects = board.projets;
         this.history = board.history;
+        this.verifIfNotification();
         this.storage.remove('board').then(() => {
           this.storage.set('board', json);
         }).catch(() => {
@@ -84,6 +83,7 @@ export class IntraProvider {
       }
     );
   }
+
 
   fillBoard(board, json) {
     if (json && json.board) {
@@ -128,12 +128,53 @@ export class IntraProvider {
     )
   }
 
+
+  verifIfNotification() {
+    if (this.previousLength == -1)
+      this.previousLength = this.history.length;
+    setInterval(() => {
+      if (this.previousLength != this.history.length) {
+        console.log('Notif a envoyer !');
+        this.localNotifications.schedule({
+          id: 1,
+          title: 'Intra Epitech',
+          text: 'Hey ! Il y a du nouveau dans votre intra !',
+          icon: './assets/imgs/epitechLogo.png'
+        });
+        this.previousLength = this.history.length;
+      } else {
+        console.log('Verification des historys : rien à redire');
+      }
+      this.refreshDataHistory(null);
+    }, 10000);
+    // 900000 == 15 minutes
+  }
+
+  refreshDataHistory(event) {
+    this.http.post(this.userProvider.transitAPIUrl, {url: this.userProvider.intraBaseUrl + this.userProvider.token}).subscribe(
+      success => {
+        let json = JSON.parse(success.toString());
+        this.history = json.history;
+      },
+      error => {
+        console.error(error.toString());
+      }
+    );
+    if (event) {
+      setTimeout(() => {
+        event.complete();
+      }, 2000);
+    }
+  }
+
   refreshData(event) {
     this.getBoard(false);
     this.getUserProfil(false);
-    setTimeout(() => {
-      event.complete();
-    }, 2000);
+    if (event) {
+      setTimeout(() => {
+        event.complete();
+      }, 2000);
+    }
   }
 
 }

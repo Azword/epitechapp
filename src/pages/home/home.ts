@@ -4,6 +4,8 @@ import {UserProvider} from "../../providers/user/user";
 import {IntraProvider} from "../../providers/intra/intra";
 import {ModulesPage} from "./modules/modules";
 import {ProjectsPage} from "./projects/projects";
+import {LocalNotifications} from "@ionic-native/local-notifications";
+import {BackgroundMode} from "@ionic-native/background-mode";
 
 /**
  * Generated class for the HomePage page.
@@ -19,8 +21,12 @@ import {ProjectsPage} from "./projects/projects";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, public intraProvider: IntraProvider) {
+  localNotif: LocalNotifications;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, public intraProvider: IntraProvider, private backgroundMode: BackgroundMode) {
+    this.backgroundMode.enable();
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');

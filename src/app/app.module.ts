@@ -12,7 +12,7 @@ import {AboutPage} from "../pages/about/about";
 import {AccountPage} from "../pages/account/account";
 import {SettingsPage} from "../pages/settings/settings";
 import {CreditPage} from "../pages/home/credit/credit";
-import {HistoryPage} from "../pages/home/history/history";
+import {HistoryPage} from "../pages/history/history";
 import {ModulesPage} from "../pages/home/modules/modules";
 import {NewsPage} from "../pages/home/news/news";
 import {ProjectsPage} from "../pages/home/projects/projects";
@@ -26,6 +26,9 @@ import {ProjectDetailsPage} from "../pages/home/projects/project-details/project
 import {IonicStorageModule} from "@ionic/storage";
 import {ProgressBarCreditComponent} from "../components/progress-bar-credit/progress-bar-credit";
 import {ProgressBarTimeLineComponent} from "../components/progress-bar-time-line/progress-bar-time-line";
+import { NotificationProvider } from '../providers/notification/notification';
+import {LocalNotifications} from "@ionic-native/local-notifications";
+import {BackgroundMode} from "@ionic-native/background-mode";
 
 
 @NgModule({
@@ -40,6 +43,7 @@ import {ProgressBarTimeLineComponent} from "../components/progress-bar-time-line
     HistoryPage,
     ModulesPage,
     NewsPage,
+    HistoryPage,
     ProjectsPage,
     LoginPage,
     ProgressBarCreditComponent,
@@ -66,6 +70,7 @@ import {ProgressBarTimeLineComponent} from "../components/progress-bar-time-line
     NewsPage,
     ProjectsPage,
     LoginPage,
+    HistoryPage,
     ProgressBarCreditComponent,
     ProgressBarTimeLineComponent,
     ProjectDetailsPage
@@ -77,7 +82,10 @@ import {ProgressBarTimeLineComponent} from "../components/progress-bar-time-line
     NewsProvider,
     IntraProvider,
     InAppBrowser,
+    LocalNotifications,
+    BackgroundMode,
     UserProvider,
+    NotificationProvider,
   ]
 })
 export class AppModule {}
